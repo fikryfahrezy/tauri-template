@@ -53,6 +53,8 @@ rustup default 1.77.2
 rustc --version  # Should show 1.77.2
 ```
 
+This repository also includes `rust-toolchain.toml`, so Rust 1.77.2 is automatically selected when you run Rust commands in this project.
+
 #### Step 2: Download WebView2 Runtime (Manual)
 
 Download the fixed WebView2 runtime version that supports Windows 7:
