@@ -17,6 +17,20 @@ jobs:
         with:
           targets: wasm32-unknown-unknown
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Install Frontend Dependencies
+        run: pnpm install --frozen-lockfile
+
       - name: Verify Rust Version
         shell: pwsh
         run: |
@@ -34,8 +48,6 @@ jobs:
       - name: Install Tauri CLI
         run: cargo install tauri-cli --locked
 
-      - name: Install Trunk
-        run: cargo install trunk --version 0.21.5 --locked
 
       - name: Download WebView2 Fixed Runtime
         run: gh release download webview2-runtimes --pattern "Microsoft.WebView2.FixedVersionRuntime.88.0.705.81.x64.cab"
@@ -47,7 +59,7 @@ jobs:
           Expand .\Microsoft.WebView2.FixedVersionRuntime.88.0.705.81.x64.cab -F:* ./src-tauri
 
       - name: Build Tauri App
-        run: cargo tauri build
+        run: pnpm tauri build
 
       - name: Upload Bundles
         uses: actions/upload-artifact@v6
