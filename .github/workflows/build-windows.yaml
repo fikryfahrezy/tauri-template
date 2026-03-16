@@ -66,4 +66,4 @@ jobs:
         with:
           name: windows-bundles
           path: |
-            target/release/bundle/**/*
+            src-tauri/target/release/bundle/**/*
