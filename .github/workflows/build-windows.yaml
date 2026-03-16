@@ -35,7 +35,7 @@ jobs:
         run: cargo install tauri-cli --locked
 
       - name: Install Trunk
-        run: cargo install trunk
+        run: cargo install trunk --version 0.21.5 --locked
 
       - name: Download WebView2 Fixed Runtime
         run: gh release download webview2-runtimes --pattern "Microsoft.WebView2.FixedVersionRuntime.88.0.705.81.x64.cab"
