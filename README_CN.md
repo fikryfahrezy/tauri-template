@@ -53,6 +53,8 @@ rustup default 1.77.2
 rustc --version  # 应显示 1.77.2
 ```
 
+该存储库还包含 `rust-toolchain.toml`，因此当您在此项目中运行 Rust 命令时，会自动选择 Rust 1.77.2。
+
 #### 步骤 2：下载 WebView2 运行时（手动）
 
 下载支持 Windows 7 的固定 WebView2 运行时版本：
